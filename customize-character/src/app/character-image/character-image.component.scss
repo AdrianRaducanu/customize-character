@@ -3,6 +3,31 @@
   width: 20rem;
 }
 
-#girl {
+.girl {
   opacity: 1;
+  fill: red;
+}
+.boy {
+  fill: red;
+}
+.face {
+}
+
+.eyes {
+  fill: white;
+}
+.eyebrow {
+  stroke: #231f20;;
+  stroke-linecap:round;
+  stroke-width:1.25px;
+}
+
+.iris {
+  fill: #231f20;;
+}
+.mouth {
+  stroke: #231f20;;
+  fill: transparent;
+  stroke-linecap:round;
+  stroke-width:1.25px;
 }

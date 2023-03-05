@@ -1,3 +1,19 @@
 <div class="appearance-main-div">
-  <input [(colorPicker)]="color" [style.background]="color"/>
+  <label>
+    Hair color
+    <input class="color-input" [(colorPicker)]="hairColor" [style.background]="hairColor" readonly/>
+  </label>
+  <label>
+    Skin color
+    <input class="color-input" [(colorPicker)]="skinColor" [style.background]="skinColor" readonly/>
+  </label>
+  <label>
+    Boy
+    <input class="color-input" type="radio" id="boy" name="boygirl" value="boy" checked>
+  </label>
+  <label>
+    Girl
+    <input class="color-input" type="radio" id="girl" name="boygirl" value="girl">
+  </label>
+
 </div>

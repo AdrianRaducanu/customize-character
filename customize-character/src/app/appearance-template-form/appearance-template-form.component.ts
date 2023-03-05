@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appearance-template-form.component.scss']
 })
 export class AppearanceTemplateFormComponent implements OnInit {
-  color: any;
+  skinColor: any;
+  hairColor: any;
 
   constructor() { }
 

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterImageComponent implements OnInit {
 
+  colorHair = "#fff1f3";
   constructor() { }
 
   ngOnInit(): void {

@@ -6,7 +6,9 @@ import { AppearanceTemplateFormComponent } from './appearance-template-form/appe
 import { BioReactiveFormComponent } from './bio-reactive-form/bio-reactive-form.component';
 import { CharacterImageComponent } from './character-image/character-image.component';
 import {ColorPickerModule} from "ngx-color-picker";
-
+import {FormsModule} from "@angular/forms";
+import {CharacterInfoService} from "./character-info.service";
+// https://github.com/zefoy/ngx-color-picker
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,8 +19,9 @@ import {ColorPickerModule} from "ngx-color-picker";
   imports: [
     BrowserModule,
     ColorPickerModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [CharacterInfoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

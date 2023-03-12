@@ -1,19 +1,43 @@
 <div class="appearance-main-div">
-  <label>
-    Hair color
-    <input class="color-input" [(colorPicker)]="hairColor" [style.background]="hairColor" readonly/>
-  </label>
-  <label>
-    Skin color
-    <input class="color-input" [(colorPicker)]="skinColor" [style.background]="skinColor" readonly/>
-  </label>
-  <label>
-    Boy
-    <input class="color-input" type="radio" id="boy" name="boygirl" value="boy" checked>
-  </label>
-  <label>
-    Girl
-    <input class="color-input" type="radio" id="girl" name="boygirl" value="girl">
-  </label>
-
+  <form class="appearance-form" #myForm="ngForm">
+    <label>
+      Hair color
+      <input class="color-input"
+             [(colorPicker)]="characterStyle.hairColor"
+             [style.background]="characterStyle.hairColor"
+             [(ngModel)]="characterStyle.hairColor"
+             name="hairColor"
+             readonly/>
+    </label>
+    <label>
+      Skin color
+      <input class="color-input"
+             [(colorPicker)]="characterStyle.skinColor"
+             [style.background]="characterStyle.skinColor"
+             [(ngModel)]="characterStyle.skinColor"
+             name="skinColor"
+             readonly/>
+    </label>
+    <label>
+      Boy
+      <input class="color-input"
+             type="radio"
+             id="boy"
+             name="gender"
+             value="boy"
+             [(ngModel)]="characterStyle.gender"
+             checked>
+    </label>
+    <label>
+      Girl
+      <input class="color-input"
+             type="radio"
+             id="girl"
+             name="gender"
+             value="girl"
+             [(ngModel)]="characterStyle.gender">
+    </label>
+  </form>
+  <button (click)="showForm()">Log Form</button>
 </div>
+

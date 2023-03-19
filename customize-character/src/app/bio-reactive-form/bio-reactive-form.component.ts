@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-bio-reactive-form',
@@ -16,16 +16,38 @@ export class BioReactiveFormComponent implements OnInit {
     const addressNestForm = this.fb.group({
       street: '',
       number: '',
-    })
+    });
+
     this.bioForm = this.fb.group({
       firstName: '',
       lastName: '',
       city: 'south park',
-      address: addressNestForm
+      address: addressNestForm,
+      friends: this.fb.array([])
     });
 
     this.bioForm.valueChanges.subscribe(change => console.log(change));
 
+  }
+
+  get friendsField() {
+    return this.bioForm.get('friends') as FormArray;
+  }
+
+  addFriendsField() {
+    const friend = this.fb.group({
+      firstNameFriend: '',
+      lastNameFriend: ''
+    });
+    this.friendsField.push(friend);
+  }
+
+  deleteFriendsField(i) {
+    this.friendsField.removeAt(i);
+  }
+
+  showForm() {
+    console.log(this.bioForm)
   }
 
 }

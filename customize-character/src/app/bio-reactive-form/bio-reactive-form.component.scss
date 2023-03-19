@@ -37,7 +37,7 @@ option {
   border-radius: 0;
 }
 
-.address-label {
+.address-label, .form-array {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -48,6 +48,57 @@ option {
   width: 40%;
   margin-bottom: 0.5rem;
 }
+
+
+.label-array {
+  height: 6rem;
+  overflow-y: scroll;
+}
+
+.btn-delete {
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid red;
+  color: red;
+  font-size: smaller;
+  padding: 2px;
+  cursor: pointer;
+}
+
+button {
+  background: #ffffff;
+  width: 40%;
+  border-radius: 5px;
+  border: 1px solid #231f20;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.btn-add {
+  border: 1px solid #3aa89b;
+  color: #3aa89b;
+}
+
+
+//https://codepen.io/GhostRider/pen/oNvoNv
+.label-array::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+.label-array::-webkit-scrollbar
+{
+  width: 3px;
+  background-color: #F5F5F5;
+}
+.label-array::-webkit-scrollbar-thumb
+{
+  background-color: #313131;
+  border: 2px solid #555555;
+}
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 <div class="bio-main-div">
   <form class="bio-form" [formGroup]="bioForm">
+    <button (click)="showForm()">Log Form</button>
     <label>
       First Name
       <input class="input-text"
@@ -36,5 +37,24 @@
                formControlName="number">
       </div>
     </label>
+    <label *ngIf="friendsField.controls" >
+      Friends
+      <div formArrayName="friends" class="label-array">
+        <div *ngFor="let friend of friendsField.controls; let i=index"
+             class="form-array"
+             [formGroupName]="i">
+          <input class="input-text input-group"
+                 type="text"
+                 placeholder="first name..."
+                 formControlName="firstNameFriend">
+          <input class="input-text input-group"
+                 type="text"
+                 placeholder="last name..."
+                 formControlName="lastNameFriend">
+          <div class="btn-delete" (click)="deleteFriendsField(i)">delete</div>
+        </div>
+      </div>
+    </label>
+    <button class="btn-add" (click)="addFriendsField()">Add friend</button>
   </form>
 </div>

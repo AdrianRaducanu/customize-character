@@ -13,10 +13,15 @@ export class BioReactiveFormComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    const addressNestForm = this.fb.group({
+      street: '',
+      number: '',
+    })
     this.bioForm = this.fb.group({
       firstName: '',
       lastName: '',
       city: 'south park',
+      address: addressNestForm
     });
 
     this.bioForm.valueChanges.subscribe(change => console.log(change));

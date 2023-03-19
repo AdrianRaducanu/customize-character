@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-bio-reactive-form',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BioReactiveFormComponent implements OnInit {
 
-  constructor() { }
+  bioForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.bioForm = this.fb.group({
+      firstName: '',
+      lastName: '',
+      city: 'south park',
+    });
+
+    this.bioForm.valueChanges.subscribe(change => console.log(change));
+
   }
 
 }

@@ -6,7 +6,7 @@ import { AppearanceTemplateFormComponent } from './appearance-template-form/appe
 import { BioReactiveFormComponent } from './bio-reactive-form/bio-reactive-form.component';
 import { CharacterImageComponent } from './character-image/character-image.component';
 import {ColorPickerModule} from "ngx-color-picker";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CharacterInfoService} from "./character-info.service";
 // https://github.com/zefoy/ngx-color-picker
 @NgModule({
@@ -20,6 +20,7 @@ import {CharacterInfoService} from "./character-info.service";
     BrowserModule,
     ColorPickerModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [CharacterInfoService],
   bootstrap: [AppComponent]

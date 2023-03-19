@@ -1,3 +1,27 @@
 <div class="bio-main-div">
-
+  <form class="bio-form" [formGroup]="bioForm">
+    <label>
+      First Name
+      <input class="input-text"
+             type="text"
+             formControlName="firstName">
+    </label>
+    <label>
+      Last Name
+      <input class="input-text"
+             type="text"
+             formControlName="lastName">
+    </label>
+    <label>
+      City
+      <select class="input-dropdown"
+              name="input-dropdown"
+              formControlName="city">
+        <option value="south park" selected>South Park</option>
+        <option value="denver">Denver</option>
+        <option value="imagination land">Imagination Land</option>
+        <option value="washington dc">Washington D.C.</option>
+      </select>
+    </label>
+  </form>
 </div>

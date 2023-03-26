@@ -1,5 +1,5 @@
 .bio-main-div {
-  height: 50rem;
+  height: 60rem;
   width: 30rem;
   border-radius: 20px;
 
@@ -77,6 +77,23 @@ button {
 .btn-add {
   border: 1px solid #3aa89b;
   color: #3aa89b;
+}
+
+.btn-submit {
+  border: 1px solid #3aa89b;
+  background: #3aa89b;
+  color: white;
+}
+
+.btn-submit-fail {
+  border: 1px solid #505959;
+  background: #505959;
+  color: white;
+  cursor: auto;
+}
+
+.no-friends {
+  font-style: italic;
 }
 
 

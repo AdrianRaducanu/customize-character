@@ -1,5 +1,5 @@
 <div class="bio-main-div">
-  <form class="bio-form" [formGroup]="bioForm">
+  <form class="bio-form" [formGroup]="bioForm" (ngSubmit)="onSubmit(bioForm)">
     <button (click)="showForm()">Log Form</button>
     <label>
       First Name
@@ -39,7 +39,7 @@
     </label>
     <label *ngIf="friendsField.controls" >
       Friends
-      <div formArrayName="friends" class="label-array">
+      <div formArrayName="friends" class="label-array" *ngIf="friendsField.length; else noFriends">
         <div *ngFor="let friend of friendsField.controls; let i=index"
              class="form-array"
              [formGroupName]="i">
@@ -54,7 +54,11 @@
           <div class="btn-delete" (click)="deleteFriendsField(i)">delete</div>
         </div>
       </div>
+      <ng-template #noFriends >
+        <div class="no-friends">Hey Butters, still no friends???</div>
+      </ng-template>
     </label>
     <button class="btn-add" (click)="addFriendsField()">Add friend</button>
+    <button type="submit" [ngClass]="bioForm.valid ? 'btn-submit' : 'btn-submit-fail'" [disabled]="bioForm.valid">{{bioForm.valid}}</button>
   </form>
 </div>

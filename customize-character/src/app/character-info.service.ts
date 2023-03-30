@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {IAppearance} from "./interfaces";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {IAppearance, IBio} from "./interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,8 @@ export class CharacterInfoService {
     gender: "boy"
   });
 
+  private bioSubject$: Subject<IBio> = new Subject<IBio>();
+
   constructor() { }
 
   getAppearanceObs(): Observable<IAppearance> {
@@ -21,5 +23,14 @@ export class CharacterInfoService {
 
   setAppearanceObs(element: IAppearance) {
     this.appearanceSubject$.next(element);
+  }
+
+  getBioObs(): Observable<IBio> {
+    return this.bioSubject$.asObservable();
+  }
+
+  setBioObs(element: IBio) {
+    console.log("A+SET")
+    this.bioSubject$.next(element);
   }
 }

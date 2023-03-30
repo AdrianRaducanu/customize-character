@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CharacterInfoService} from "../character-info.service";
 import {Subject, takeUntil} from "rxjs";
-import {IAppearance} from "../interfaces";
+import {IAppearance, IBio} from "../interfaces";
 
 @Component({
   selector: 'app-character-image',
@@ -12,6 +12,7 @@ export class CharacterImageComponent implements OnInit {
   unsubscribe$: Subject<boolean> = new Subject<boolean>();
 
   characterStyle: IAppearance;
+  characterBio: IBio;
 
   constructor(private characterInfoService: CharacterInfoService) { }
 
@@ -20,6 +21,11 @@ export class CharacterImageComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(info => {
         this.characterStyle = info;
+      });
+    this.characterInfoService.getBioObs()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(bio => {
+        this.characterBio = bio;
       })
   }
 

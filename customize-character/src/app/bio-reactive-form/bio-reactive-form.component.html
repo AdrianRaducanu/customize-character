@@ -1,6 +1,5 @@
 <div class="bio-main-div">
-  <form class="bio-form" [formGroup]="bioForm" (ngSubmit)="onSubmit(bioForm)">
-    <button (click)="showForm()">Log Form</button>
+  <form class="bio-form" [formGroup]="bioForm">
     <label>
       First Name
       <input class="input-text"
@@ -18,10 +17,10 @@
       <select class="input-dropdown"
               name="input-dropdown"
               formControlName="city">
-        <option value="south park" selected>South Park</option>
-        <option value="denver">Denver</option>
-        <option value="imagination land">Imagination Land</option>
-        <option value="washington dc">Washington D.C.</option>
+        <option value="South Park" selected>South Park</option>
+        <option value="Denver">Denver</option>
+        <option value="Imagination Land">Imagination Land</option>
+        <option value="Washington DC">Washington D.C.</option>
       </select>
     </label>
     <label>
@@ -59,6 +58,9 @@
       </ng-template>
     </label>
     <button class="btn-add" (click)="addFriendsField()">Add friend</button>
-    <button type="submit" [ngClass]="bioForm.valid ? 'btn-submit' : 'btn-submit-fail'" [disabled]="bioForm.valid">{{bioForm.valid}}</button>
+    <button [ngClass]="bioForm.valid ? 'btn-submit' : 'btn-submit-fail'"
+            [disabled]="!bioForm.valid"
+            (click)="sendInfo(bioForm)"
+    >{{bioForm.valid ? "Send" : "Not ok.."}}</button>
   </form>
 </div>

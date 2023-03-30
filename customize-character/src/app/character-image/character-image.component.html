@@ -34,3 +34,11 @@
     </svg>
   </div>
 </div>
+<div class="character-text">
+  <div *ngIf="characterBio">
+    Hi! I'm {{characterBio.firstName + ' '+ characterBio.lastName}} and I live in {{characterBio.city}} on <br />
+    {{characterBio.address.street}} street no. {{characterBio.address.number}}.<br />
+    I have {{characterBio.friends.length === 0 ? 'no ' : characterBio.friends.length}} friend{{characterBio.friends.length === 1 ? '' : 's'}}.
+  </div>
+</div>
+
